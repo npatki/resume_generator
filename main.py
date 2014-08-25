@@ -10,7 +10,7 @@ def copy_settings(out_file):
     copy2(SETTINGS_FILE, out_file)
 
 
-def handle_top(name, header, out_file):
+def handle_top(name):
     lines = []
     lines.append('%................ DOCUMENT ................')
     lines.append('\\begin{document}')
@@ -127,7 +127,8 @@ if __name__ == '__main__':
     in_file = file(args.in_file)
     vals = json.load(in_file)
 
-    output = handle_header(vals['header'])
+    output = handle_top(vals['name'])
+    output.extend(handle_header(vals['header']))
 
     for section in vals['sections']:
         output.extend(_handle_section(section))
@@ -137,7 +138,6 @@ if __name__ == '__main__':
     copy_settings(args.out_file)
 
     with open(args.out_file, 'a+') as out:
-        out.write('\\begin{document}\n')
         out.write('\n'.join(output))
 
     print 'Done!'
