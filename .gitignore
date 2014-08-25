@@ -1,2 +1,5 @@
 venv
+*.aux
+*.log
+*.out
 *.pyc
