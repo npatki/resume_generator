@@ -1,0 +1,109 @@
+{
+    "title": "Resume Schema",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "A schema for defining the information in a resume.",
+    "type": "object",
+    "required": ["name", "header", "sections"],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The name to put at the top of the resume."
+        },
+        "header": {
+            "type": "object",
+            "description": "The header at the top of the resume, before the entries.",
+            "required": ["left", "middle", "right"],
+            "additionalProperties": false,
+            "properties": {
+                "left": {
+                    "$ref": "#/definitions/headerCol"
+                },
+                "middle": {
+                    "$ref": "#/definitions/headerCol"
+                },
+                "right": {
+                    "$ref": "#/definitions/headerCol"
+                }
+            }
+        },
+        "sections": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "description": "The major sub-sections that define the organization.",
+                "required": ["category", "items"],
+                "additionalProperties": false,
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "The name of the sub-section."
+                    },
+                    "items": {
+                        "type": "array",
+                        "description": "The entries to put in the sub-section",
+                        "items": {
+                            "$ref": "#/definitions/entry"
+                        }
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "When true, this sub-section is not rendered."
+                    }
+                }
+            } 
+        }
+    },
+    "definitions": {
+        "headerCol": {
+            "type": "array",
+            "description": "The lines to display in a section of the header.",
+            "items": {
+                "type": "string"
+            }
+        },
+        "entry": {
+            "type": "object",
+            "description": "A single entry describing an experience.",
+            "required": ["title", "description"],
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Overall title of the entry."
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Where the experience took place."
+                },
+                "date": {
+                    "type": "string",
+                    "description": "When the experience took place."
+                },
+                "position": {
+                    "type": "string",
+                    "description": "A particular role for the entry."
+                },
+                "description": {
+                    "type": "array",
+                    "description": "The lines to display when describing the entry.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ignore": {
+                    "type": "array",
+                    "description": "The corresponding indicies in description are not rendered.",
+                    "items": {
+                        "type": "integer",
+                        "minimum": 0        
+                    }
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "When true, this entry is not rendered."
+                }
+            }
+        } 
+    }
+}

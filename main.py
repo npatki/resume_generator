@@ -1,9 +1,12 @@
 import argparse
 import json
+from jsonschema import validate
 from shutil import copy2
+import sys
 
 
 SETTINGS_FILE = 'settings.tex'
+SCHEMA_FILE = 'schema.json'
 
 
 def copy_settings(out_file):
@@ -122,6 +125,9 @@ def _handle_section(data):
 
 
 if __name__ == '__main__':
+    schema = file(SCHEMA_FILE)
+    schema_validate = json.load(schema)
+
     usage = '%prog [options] input_file output_file'
     parser = argparse.ArgumentParser(usage=usage)
 
@@ -132,6 +138,12 @@ if __name__ == '__main__':
     
     in_file = file(args.in_file)
     vals = json.load(in_file)
+
+    try:
+        validate(vals, schema_validate)
+    except ValidationError:
+        print 'Please check the JSON schema!'
+        sys.exit(1)
 
     output = handle_top(vals['name'])
     output.extend(handle_header(vals['header']))
