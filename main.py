@@ -38,7 +38,7 @@ def handle_header(header):
     lines = []
 
     if 'left' not in header or 'middle' not in header or 'right' not in header:
-        return []
+        return lines
 
     lines.append('\\begin{multicols}{3}')
     lines.extend(_get_section_lines(header['left']))
@@ -56,7 +56,6 @@ def _handle_category(name):
     lines = []
     lines.append('\\noindent\\textbf{\\textsc{%s}}\\\\' % name)
     lines.append('\\rule{\\textwidth}{1pt}\\\\')
-    lines.append('')
     return lines
 
 
@@ -70,15 +69,18 @@ def _description_generator(descriptions, ignore):
         yield descriptions[i]
         i += 1
 
+    while i < 1:
+        yield ''
+        i += 1
 
 def _handle_item_data(item):
     lines = []
 
     if 'disabled' in item and item['disabled']:
         return lines
-    
+
     lines.append('\\noindent\\resumeentry{\\textbf{%s}}{\\textbf{%s}}' %
-        (item['title'], item['location']))
+        (item['title'], item.get('location', '')))
     lines.append('')
     
     try:
@@ -87,13 +89,13 @@ def _handle_item_data(item):
         ignore = []
 
     desc = _description_generator(item['description'], ignore)
-    has_pos = 'position' in item
-    if has_pos:
+
+    if 'position' in item:
         lines.append('\\noindent\\resumeentry{\\textit{%s}}{\\textit{%s}}' %
-            (item['position'], item['date']))
+            (item['position'], item.get('date', '')))
     else:
         lines.append('\\resumeentry{%s}{\\textit{%s}}' %
-            (next(desc), item['date']))
+            (next(desc), item.get('date', '')))
 
     for val in desc:
         lines.append('')
@@ -107,6 +109,10 @@ def _handle_item_data(item):
 
 def _handle_section(data):
     lines = []
+
+    if 'disabled' in data and data['disabled']:
+        return lines
+
     lines.extend(_handle_category(data['category']))
 
     for item in data['items']:
