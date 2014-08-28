@@ -1,12 +1,16 @@
 import argparse
 import json
 from jsonschema import validate
+import os
 from shutil import copy2
 import sys
 
 
-SETTINGS_FILE = 'settings.tex'
-SCHEMA_FILE = 'schema.json'
+_full_path = os.path.realpath(__file__)
+_dir = os.path.dirname(_full_path)
+
+SETTINGS_FILE = os.path.join(_dir, 'settings.tex')
+SCHEMA_FILE = os.path.join(_dir, 'schema.json')
 
 
 def copy_settings(out_file):
