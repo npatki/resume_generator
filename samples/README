@@ -1,0 +1,16 @@
+This folder contains a sample JSON file that contains all the resume information from a fictional John Doe.
+
+Though he has not filled out all of the properties for some entries, he has correctly provided the required ones. He has also chosen to hide some sections, entries, and descriptions to tailor his resume towards specific employers.
+
+He can then run:
+    python -m main samples/sample.json samples/sample.tex
+from the top level of this git repo.
+
+This will generate the latex file sample.tex, which John Doe can edit as he wishes. (For purposes of this demo, we have not change the tex file.)
+
+Then, with latex installed, John Doe can run:
+    pdflatex samples/sample.tex
+
+The resulting sample.pdf is also included in this folder.
+
+For more details about the JSON format required, please see schema.json in the top level directory.

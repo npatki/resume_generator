@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%............................DIMENSIONS .....................
+\topmargin=-0.25in % length of margin at top (1 in added by default)
+\oddsidemargin=-0.5in
+\evensidemargin=-0.5in
+\textwidth=7.5in % how wide you want your text to be
+\marginparwidth=0.0in
+\headheight=0pt
+\headsep=0pt
+\textheight=9.0in % how tall text body is allowed on each page
+\pagenumbering{gobble}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\LaTeX ed on \today}
+
+\newcommand\resumeentry[2]{#1 \hfill #2}
+%................ DOCUMENT ................
+\begin{document}
+\noindent\hfil \textbf{\textsc{\Large John Doe}}\hfil
+
+\vspace{-10mm}
+\begin{multicols}{3}
+\section*{}
+ Home Address:
+
+\noindent 12345 Maine Ave
+
+\noindent New York, NY, 11365
+\section*{}
+\hfil john.s.doe@gmail.com\hfil
+
+\noindent\hfil cell: (555) 555-5555\hfil
+
+\noindent\hfil website: \href{google.com}{johndoe.com}\hfil
+\section*{}
+\hfill School Address:
+
+\noindent\hfill 54321 Dorm Row
+
+\noindent\hfill San Francisco, CA, 94107
+\end{multicols}
+\smallskip
+
+\noindent\textbf{\textsc{Education}}\\
+\rule{\textwidth}{1pt}
+
+\noindent\resumeentry{\textbf{Awesome University (AU)}}{\textbf{}}
+
+\resumeentry{B.S. in Electrical Engineering and Computer Science}{\textit{June 2015}}
+
+\resumeentry{GPA: 3.75/4.00}{}
+\smallskip
+
+\noindent\resumeentry{\textbf{New York High School}}{\textbf{New York, NY}}
+
+\resumeentry{Salutatorian of class of 500}{\textit{June 2010}}
+\smallskip
+
+\smallskip
+\noindent\textbf{\textsc{Experience}}\\
+\rule{\textwidth}{1pt}
+
+\noindent\resumeentry{\textbf{Doogle Inc.}}{\textbf{Mountainview, CA}}
+
+\noindent\resumeentry{\textit{Engineering Intern}}{\textit{June 2014 - August 2014}}
+
+\resumeentry{Optimized and refactored architecture for serving ads}{}
+
+\resumeentry{Measured performance benefits of 200ms}{}
+
+\resumeentry{Demoed project to VPs and executives}{}
+\smallskip
+
+\noindent\resumeentry{\textbf{Small Startup}}{\textbf{San Francisco, CA}}
+
+\noindent\resumeentry{\textit{Database Admin}}{\textit{December 2013 - May 2014}}
+
+\resumeentry{Created and implemented database schema}{}
+
+\resumeentry{Ran migrations from existing databse}{}
+
+\resumeentry{Added some security login using RSA encryption}{}
+\smallskip
+
+\noindent\resumeentry{\textbf{Robot Camp}}{\textbf{New York, NY}}
+
+\noindent\resumeentry{\textit{Teacher; Volunteer}}{\textit{June 2011}}
+
+\resumeentry{Helped kids build robots that compete with each other}{}
+
+\resumeentry{Designed robots that the kids would use and tested them}{}
+
+\resumeentry{Taught kids basic programming skills to help the robot move}{}
+\smallskip
+
+\noindent\resumeentry{\textbf{Coldstone Ice Cream}}{\textbf{New York, NY}}
+
+\resumeentry{Created and served customers sundaes and ice cream}{\textit{June 2010}}
+
+\resumeentry{Maintained stats about popular orders; determined optimal flavors to keep in stock}{}
+
+\resumeentry{Handled customer service complaints in a professional manner}{}
+\smallskip
+
+\smallskip
+\smallskip
+\noindent\textbf{\textsc{Skills}}\\
+\rule{\textwidth}{1pt}
+
+\resumeentry{Proficient in A++, B++, D++, and E++}{\textit{}}
+
+\resumeentry{Working knowledge of TCP/IP and UDP}{}
+
+\resumeentry{Foreign Languages: English, French, German}{}
+
+\resumeentry{Hobbies: Biking, Skiing, Camping}{}
+\smallskip
+
+\smallskip
+\end{document}

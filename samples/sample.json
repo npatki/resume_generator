@@ -1,0 +1,104 @@
+{
+    "name": "John Doe",
+    "header": {
+        "left": [
+            "Home Address:",
+            "12345 Maine Ave",
+            "New York, NY, 11365"
+        ],
+        "middle": [
+            "john.s.doe@gmail.com",
+            "cell: (555) 555-5555",
+            "website: \\href{google.com}{johndoe.com}"
+        ],
+        "right": [
+            "School Address:",
+            "54321 Dorm Row",
+            "San Francisco, CA, 94107"
+        ]
+    },
+    "sections": [{
+        "category": "Education",
+        "items": [{
+            "title": "Awesome University (AU)",
+            "date": "June 2015",
+            "description": [
+                "B.S. in Electrical Engineering and Computer Science",
+                "Minor in Art History",
+                "GPA: 3.75/4.00"
+            ],
+            "ignore": [1]
+        }, {
+            "title": "New York High School",
+            "location": "New York, NY",
+            "date": "June 2010",
+            "description": [
+                "Salutatorian of class of 500"
+            ]
+        }, {
+            "title": "A Middle School",
+            "disabled": true,
+            "description": [
+                "This will not be rendered"
+            ]
+        }]
+    }, {
+        "category": "Experience",
+        "items": [{
+            "title": "Doogle Inc.",
+            "location": "Mountainview, CA",
+            "position": "Engineering Intern",
+            "date": "June 2014 - August 2014",
+            "description": [
+                "Optimized and refactored architecture for serving ads",
+                "Measured performance benefits of 200ms",
+                "Demoed project to VPs and executives",
+                "Worked on small code fixes in the main code base"
+            ],
+            "ignore": [3]
+        }, {
+            "title": "Small Startup",
+            "location": "San Francisco, CA",
+            "position": "Database Admin",
+            "date": "December 2013 - May 2014",
+            "description": [
+                "Created and implemented database schema",
+                "Ran migrations from existing databse",
+                "Added some security login using RSA encryption"
+            ]
+        }, {
+            "title": "Robot Camp",
+            "location": "New York, NY",
+            "position": "Teacher; Volunteer",
+            "date": "June 2011",
+            "description": [
+                "Helped kids build robots that compete with each other",
+                "Designed robots that the kids would use and tested them",
+                "Taught kids basic programming skills to help the robot move"
+            ]
+        }, {
+            "title": "Coldstone Ice Cream",
+            "location": "New York, NY",
+            "date": "June 2010",
+            "description": [
+                "Created and served customers sundaes and ice cream",
+                "Maintained stats about popular orders; determined optimal flavors to keep in stock",
+                "Handled customer service complaints in a professional manner"
+            ]
+        }]
+    }, {
+        "category": "Other",
+        "items": [],
+        "disabled": true
+    }, {
+        "category": "Skills",
+        "items": [{
+            "description": [
+                "Proficient in A++, B++, D++, and E++",
+                "Working knowledge of TCP/IP and UDP",
+                "Foreign Languages: English, French, German",
+                "Hobbies: Biking, Skiing, Camping"
+            ]
+        }]
+    }]
+}
