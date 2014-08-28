@@ -62,7 +62,8 @@ def handle_header(header):
 def _handle_category(name):
     lines = []
     lines.append('\\noindent\\textbf{\\textsc{%s}}\\\\' % name)
-    lines.append('\\rule{\\textwidth}{1pt}\\\\')
+    lines.append('\\rule{\\textwidth}{1pt}')
+    lines.append('')
     return lines
 
 
@@ -86,9 +87,10 @@ def _handle_item_data(item):
     if 'disabled' in item and item['disabled']:
         return lines
 
-    lines.append('\\noindent\\resumeentry{\\textbf{%s}}{\\textbf{%s}}' %
-        (item['title'], item.get('location', '')))
-    lines.append('')
+    if 'title' in item or 'location' in item:
+        lines.append('\\noindent\\resumeentry{\\textbf{%s}}{\\textbf{%s}}' %
+            (item.get('title', ''), item.get('location', '')))
+        lines.append('')
     
     try:
         ignore = item['ignore']
@@ -154,6 +156,7 @@ if __name__ == '__main__':
 
     for section in vals['sections']:
         output.extend(_handle_section(section))
+        output.append('\\smallskip')
 
     output.append('\\end{document}')
 

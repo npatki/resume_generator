@@ -65,7 +65,7 @@
         "entry": {
             "type": "object",
             "description": "A single entry describing an experience.",
-            "required": ["title", "description"],
+            "required": ["description"],
             "additionalProperties": false,
             "properties": {
                 "title": {
